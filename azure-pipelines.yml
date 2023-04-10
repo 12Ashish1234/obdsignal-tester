@@ -1,0 +1,28 @@
+name: ci pipeline
+trigger:
+  branches:
+    include:
+      - master
+
+#pool:
+ #name: Azure Pipelines
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: Docker@0
+  displayName: 'Build obdtester image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: vehicleacrscn
+    dockerFile: /Dockerfile
+    imageName: 'obdtester:$(Build.BuildId)'
+
+- task: Docker@0
+  displayName: 'Push obdetester image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: vehicleacrscn
+    action: 'Push an image'
+    imageName: 'obdtester:$(Build.BuildId)'
+
