@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Req } from '@nestjs/common';
 import { AppService } from './app.service';
+import { CarDto } from './dto/car.dto';
 
 @Controller()
 export class AppController {
@@ -10,7 +11,12 @@ export class AppController {
   //   return this.appService.getHello();
   // }
   @Get()
- async getRequest(@Body() body) {
-    return  this.appService.getRequest(body);
+  async getRequest(@Body() body:CarDto) {
+    try{
+      return  this.appService.getRequest(body);
+    }
+    catch(e){
+      return e;
+    }
   }
 }

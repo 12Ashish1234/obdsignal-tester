@@ -4,9 +4,6 @@ FROM node:alpine
 
 WORKDIR /app
 
-
-
-
 # Installing dependencies
 
 COPY package.json ./

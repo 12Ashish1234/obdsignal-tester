@@ -33,5 +33,5 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-          docker build . -t vehilcle.azurecr.io/obdtester:${{ github.sha }}
-          docker push vehicleacrscn.azurecr.io/obdtester:${{ github.sha }}
+          docker build . -t vehilcle.azurecr.io/obdtester:${{ github.run_number }}
+          docker push vehicleacrscn.azurecr.io/obdtester:${{ github.run_number }}

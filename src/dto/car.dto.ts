@@ -1,30 +1,30 @@
-import { IsString, IsNumber } from 'class-validator';
+import { IsString, IsNumber, IsNotEmpty } from 'class-validator';
 
 export class CarDto {
   @IsString()
-  MIL: string;
+  @IsNotEmpty() MIL: string;
 
   @IsNumber()
-  DistanceWithMIL: number;
+  @IsNotEmpty() DistanceWithMIL: number;
 
   @IsString()
-  IgnitionType: string;
+  @IsNotEmpty() IgnitionType: string;
 
   @IsString()
-  FuelStatus: string;
+  @IsNotEmpty() FuelStatus: string;
 
   @IsNumber()
-  EngineLoad: number;
+  @IsNotEmpty() EngineLoad: number;
 
   @IsNumber()
-  CoolantTemperature: number;
+  @IsNotEmpty() CoolantTemperature: number;
 
   @IsNumber()
-  FuelPressure: number;
+  @IsNotEmpty() FuelPressure: number;
 
   @IsNumber()
-  EngineSpeed: number;
+  @IsNotEmpty() EngineSpeed: number;
 
   @IsNumber()
-  MAF: number;
+  @IsNotEmpty() MAF: number;
 }
